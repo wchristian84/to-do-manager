@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ListComponent } from './list/list.component';
 import { AddTaskComponent } from './list/add-task/add-task.component';
 import { EditTaskComponent } from './list/edit-task/edit-task.component';
 import { ViewTaskComponent } from './list/view-task/view-task.component';
@@ -19,7 +18,6 @@ import { VideoComponent } from './video/video.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
     AddTaskComponent,
     EditTaskComponent,
     ViewTaskComponent,
