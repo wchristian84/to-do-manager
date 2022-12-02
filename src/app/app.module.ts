@@ -29,7 +29,7 @@ import { VideoComponent } from './video/video.component';
     SidebarComponent,
     HttpComponent,
     AuthComponent,
-    VideoComponent
+    VideoComponent,
   ],
   imports: [
     BrowserModule,
