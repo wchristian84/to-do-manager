@@ -17,6 +17,9 @@
           </mat-card>
         </div>
       </div>
+    <div *ngIf="tasks.length == 0">
+      <p class="h3">No current tasks to display.</p>
+    </div>
     </div>
     <div flex="50">
       <router-outlet></router-outlet>
