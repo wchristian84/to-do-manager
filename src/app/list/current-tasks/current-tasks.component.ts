@@ -7,7 +7,13 @@ import { Task } from '../task.model';
   styleUrls: ['./current-tasks.component.css']
 })
 export class CurrentTasksComponent implements OnInit {
-  tasks: Task[] = [];
+  tasks: Task[] = [
+    {"name": "blasdhf",
+    "description": "blah blah blah",
+    "materialsNeeded": ["don't know"],
+    "priority": "high"
+    },
+  ];
 
   constructor() { } // Inject taskService once it exists
 

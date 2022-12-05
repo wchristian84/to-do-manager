@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,11 +16,11 @@ import { EditTaskComponent } from './list/edit-task/edit-task.component';
 import { ViewTaskComponent } from './list/view-task/view-task.component';
 import { ArchivedTasksComponent } from './list/archived-tasks/archived-tasks.component';
 import { CurrentTasksComponent } from './list/current-tasks/current-tasks.component';
-import { HeaderComponent } from './navigation/header/header.component';
-import { SidebarComponent } from './navigation/sidebar/sidebar.component';
 import { HttpComponent } from './shared/http/http.component';
 import { AuthComponent } from './shared/auth/auth.component';
 import { VideoComponent } from './video/video.component';
+import { NavigationComponent } from './navigation/navigation.component';
+
 
 @NgModule({
   declarations: [
@@ -24,17 +30,22 @@ import { VideoComponent } from './video/video.component';
     ViewTaskComponent,
     ArchivedTasksComponent,
     CurrentTasksComponent,
-    HeaderComponent,
-    SidebarComponent,
     HttpComponent,
     AuthComponent,
-    VideoComponent
+    VideoComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
