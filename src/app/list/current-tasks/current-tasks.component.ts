@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../task.model';
 
 @Component({
   selector: 'app-current-tasks',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./current-tasks.component.css']
 })
 export class CurrentTasksComponent implements OnInit {
+  tasks: Task[] = [];
 
-  constructor() { }
+  constructor() { } // Inject taskService once it exists
 
   ngOnInit(): void {
   }
