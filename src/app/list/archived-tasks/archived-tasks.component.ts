@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../task.model';
 
 @Component({
   selector: 'app-archived-tasks',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./archived-tasks.component.css']
 })
 export class ArchivedTasksComponent implements OnInit {
+  tasks: Task[] = [];
 
   constructor() { }
 
