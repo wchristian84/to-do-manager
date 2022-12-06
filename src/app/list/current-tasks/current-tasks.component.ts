@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrentTasksComponent implements OnInit {
 
+<<<<<<< Updated upstream
   constructor() { }
+=======
+  constructor() {
+    
+
+  } // Inject taskService once it exists
+>>>>>>> Stashed changes
 
   ngOnInit(): void {
   }
