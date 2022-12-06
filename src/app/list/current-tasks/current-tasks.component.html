@@ -1,7 +1,4 @@
 
-<div layout="center">
-  <mat-grid-list cols="12">
-    <div colspan="4">
 <div>
   <mat-grid-list cols="4">
     <div colspan="1">
@@ -24,12 +21,10 @@
           </div>
         </mat-grid-tile>
       </div>
-      <mat-grid-tile *ngIf="tasks.length == 0" colspan="4">
       <mat-grid-tile *ngIf="tasks.length == 0" colspan="1">
         <p class="h3">No current tasks to display.</p>
       </mat-grid-tile>
     </div>
-    <mat-grid-tile colspan="8">
     <mat-grid-tile colspan="3">
       <router-outlet></router-outlet>
     </mat-grid-tile>
