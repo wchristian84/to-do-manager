@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,13 @@ import { SidebarComponent } from './navigation/sidebar/sidebar.component';
 import { HttpComponent } from './shared/http/http.component';
 import { AuthComponent } from './shared/auth/auth.component';
 import { VideoComponent } from './video/video.component';
+<<<<<<< Updated upstream
+=======
+import { NavigationComponent } from './navigation/navigation.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -27,12 +34,33 @@ import { VideoComponent } from './video/video.component';
     SidebarComponent,
     HttpComponent,
     AuthComponent,
+<<<<<<< Updated upstream
     VideoComponent
+=======
+    VideoComponent,
+    NavigationComponent,
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+<<<<<<< Updated upstream
     BrowserAnimationsModule
+=======
+    BrowserAnimationsModule,
+    MatCardModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
+>>>>>>> Stashed changes
   ],
   providers: [],
   bootstrap: [AppComponent]
