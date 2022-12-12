@@ -1,2 +1,32 @@
-<p>current-tasks works!</p>
-<router-outlet></router-outlet>
+
+<div>
+  <mat-grid-list cols="4">
+    <div colspan="1">
+      <div *ngIf="tasks.length > 0">
+        <mat-grid-tile>
+          <div *ngFor="let task of tasks, let i = index">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title routerLink="/current-tasks/{{i}}" style="cursor: pointer">{{ task.name }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>{{ task.description }}</p>
+              </mat-card-content>
+              <mat-card-actions>
+                <a mat-raised-button color="primary" routerLink="/current-tasks/{{i}}">View</a>
+                <button mat-raised-button color="accent" (click)="onArchive(i)">Archive</button>
+                <button mat-raised-button color="warn" (click)="onDelete(i)">Delete</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </mat-grid-tile>
+      </div>
+      <mat-grid-tile *ngIf="tasks.length == 0" colspan="1">
+        <p class="h3">No current tasks to display.</p>
+      </mat-grid-tile>
+    </div>
+    <mat-grid-tile colspan="3">
+      <router-outlet></router-outlet>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
