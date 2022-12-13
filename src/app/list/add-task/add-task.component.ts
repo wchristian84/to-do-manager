@@ -21,7 +21,12 @@ export class AddTaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onCancel() {
+
+  }
+
   onSubmit() {
     console.log(this.addTaskForm.value);
   }
+
 }
