@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -12,6 +11,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select'
+import { MatInputModule } from '@angular/material/input';
+import { NgModule } from '@angular/core';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,11 +23,12 @@ import { EditTaskComponent } from './list/edit-task/edit-task.component';
 import { ViewTaskComponent } from './list/view-task/view-task.component';
 import { ArchivedTasksComponent } from './list/archived-tasks/archived-tasks.component';
 import { CurrentTasksComponent } from './list/current-tasks/current-tasks.component';
-import { HttpComponent } from './shared/http/http.component';
 import { AuthComponent } from './shared/auth/auth.component';
 import { VideoComponent } from './video/video.component';
 import { NavigationComponent } from './navigation/navigation.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -35,10 +38,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     ViewTaskComponent,
     ArchivedTasksComponent,
     CurrentTasksComponent,
-    HttpComponent,
     AuthComponent,
     VideoComponent,
-    NavigationComponent
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,13 +53,15 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatGridListModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatButtonModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
