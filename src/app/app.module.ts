@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,6 @@ import { EditTaskComponent } from './list/edit-task/edit-task.component';
 import { ViewTaskComponent } from './list/view-task/view-task.component';
 import { ArchivedTasksComponent } from './list/archived-tasks/archived-tasks.component';
 import { CurrentTasksComponent } from './list/current-tasks/current-tasks.component';
-import { HttpComponent } from './shared/http/http.component';
 import { AuthComponent } from './shared/auth/auth.component';
 import { VideoComponent } from './video/video.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -32,7 +31,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ViewTaskComponent,
     ArchivedTasksComponent,
     CurrentTasksComponent,
-    HttpComponent,
     AuthComponent,
     VideoComponent,
     NavigationComponent,
@@ -52,9 +50,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatButtonModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
