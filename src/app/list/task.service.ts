@@ -13,7 +13,7 @@ export class TaskService {
     {
       name: 'blasdhf',
       description: 'blah blah blah',
-      materialsNeeded: ["don't know"],
+      materialsNeeded: "don't know",
       priority: 'high',
     },
   ];
