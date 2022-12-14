@@ -45,10 +45,10 @@ export class HTTPService {
   }
 
   // METHOD - saves both current and archived tasks arrays to Firebase
-  saveTasksToFirebase(archivedTasks: Task[], currentTasks: Task[]) {
+  saveTasksToFirebase() {
     const tasks = {
-      archivedTasks: archivedTasks,
-      currentTasks: currentTasks,
+      archivedTasks: this.taskService.getArchivedTasks(),
+      currentTasks: this.taskService.getCurrentTasks(),
     };
 
     this.http.patch(this.firebaseDatabaseURL, tasks).subscribe((res) => {

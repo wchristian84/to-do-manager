@@ -11,11 +11,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select'
-import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
 import { AddTaskComponent } from './list/add-task/add-task.component';
 import { EditTaskComponent } from './list/edit-task/edit-task.component';
 import { ViewTaskComponent } from './list/view-task/view-task.component';
@@ -56,6 +57,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     ReactiveFormsModule,
     MatInputModule,
     MatGridListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

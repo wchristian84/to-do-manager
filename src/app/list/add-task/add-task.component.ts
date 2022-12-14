@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { HTTPService } from 'src/app/shared/http/http.service';
+import { Task } from '../task.model';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-add-task',
@@ -10,23 +15,38 @@ export class AddTaskComponent implements OnInit {
   addTaskForm: FormGroup;
   priorities: string[] = ['Low', 'Medium', 'High', 'Urgent'];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private taskService: TaskService,
+    private httpService: HTTPService
+    )
+    {
     this.addTaskForm = this.formBuilder.group({
       name: new FormControl<string | null>(null, Validators.required),
       description: new FormControl<string | null>(null),
       materials: new FormControl<string | null>(null),
       priority: new FormControl<string | null>(null)
-    })}
+      })
+    }
 
   ngOnInit(): void {
   }
 
   onCancel() {
-
+    this.router.navigate(["/current-tasks"]);
   }
 
   onSubmit() {
-    console.log(this.addTaskForm.value);
+    let newTask = new Task(
+      this.addTaskForm.value.name,
+      this.addTaskForm.value.description,
+      this.addTaskForm.value.materials,
+      this.addTaskForm.value.priority
+      );
+    this.taskService.addTask(newTask);
+    this.httpService.saveTasksToFirebase();
+    this.router.navigate(["/current-tasks"]);
   }
 
 }
