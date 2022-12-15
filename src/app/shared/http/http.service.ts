@@ -17,11 +17,11 @@ export class HTTPService {
 
   fetchCurrentTasks() {
     return this.http
-    .get<Task[]>(`${this.firebaseDatabaseURL}${this.userData.id}currentTasks.json`, {})
+    .get<Task[]>(`${this.firebaseDatabaseURL}${this.userData.id}/currentTasks.json`, {})
     .subscribe((tasks) => {
       console.log(tasks);
       if (tasks === null) {
-        this.taskService.currentTasks = [];
+        this.taskService.setCurrentTasks([]);
       } else {
         this.taskService.setCurrentTasks(tasks);
         console.log('Response from DB: ', tasks);
@@ -31,11 +31,11 @@ export class HTTPService {
 
   fetchArchivedTasks() {
     return this.http
-    .get<Task[]>(`${this.firebaseDatabaseURL}${this.userData.id}archivedTasks.json`, {})
+    .get<Task[]>(`${this.firebaseDatabaseURL}${this.userData.id}/archivedTasks.json`, {})
     .subscribe((tasks) => {
       console.log(tasks);
       if (tasks === null) {
-        this.taskService.archivedTasks = [];
+        this.taskService.setArchivedTasks([]);
       } else {
         this.taskService.setArchivedTasks(tasks);
         console.log('Response from DB: ', tasks);
