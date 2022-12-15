@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TaskService } from 'src/app/list/task.service';
-import { Task } from 'src/app/list/task.model';import { UserData } from '../auth/auth.service';
+import { Task } from 'src/app/list/task.model';import { AuthService, UserData } from '../auth/auth.service';
 
 
 @Injectable({
@@ -12,7 +12,7 @@ export class HTTPService {
   firebaseDatabaseURL = `https://to-do-manager-2ffb3-default-rtdb.firebaseio.com/tasks/${this.userData.id}.json`;
   firebaseUserURL = `https://to-do-manager-2ffb3-default-rtdb.firebaseio.com/tasks/${this.userData.id}/`
 
-  constructor(private http: HttpClient, private taskService: TaskService) {}
+  constructor(private http: HttpClient, private taskService: TaskService, private authService: AuthService) {}
 
   fetchCurrentTasks() {
     return this.http

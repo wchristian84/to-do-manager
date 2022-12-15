@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { HTTPService } from '../http/http.service';
 import { AuthResponseData, AuthService } from './auth.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class AuthComponent implements OnInit {
   authObsrv: Observable<AuthResponseData> | undefined;
   errMsg = null;
 
-  constructor(private _formBuilder: FormBuilder, private authService: AuthService, private router: Router, private http: HTTPService) {}
+  constructor(private _formBuilder: FormBuilder, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.authService.automaticSignIn();

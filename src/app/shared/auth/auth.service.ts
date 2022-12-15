@@ -68,7 +68,7 @@ export class AuthService {
   };
   signIn(email: string, password: string) {
     return this.http.post<AuthResponseData>(
-      environment.SIGN_IN_URL + environment.AUTH_API_KEY,
+      environment.SIGN_IN_URL + environment.firebaseAPIKey,
       {
         email,
         password,
@@ -91,7 +91,7 @@ export class AuthService {
   };
 
   signUp(email: string, password: string) {
-    return this.http.post<AuthResponseData>(environment.SIGN_UP_URL + environment.AUTH_API_KEY, {
+    return this.http.post<AuthResponseData>(environment.SIGN_UP_URL + environment.firebaseAPIKey, {
       email,
       password,
       returnSecureToken: true

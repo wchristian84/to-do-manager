@@ -25,7 +25,7 @@ import { CurrentTasksComponent } from './list/current-tasks/current-tasks.compon
 import { AuthComponent } from './shared/auth/auth.component';
 import { VideoComponent } from './video/video.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { AuthInterceptorService } from './shared/auth/auth-interceptor';
+import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 
 
 @NgModule({
