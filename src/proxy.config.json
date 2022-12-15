@@ -1,0 +1,7 @@
+
+{
+  "/api": {
+    "target": "https://to-do-manager-2ffb3.web.app/",
+    "secure": false
+  }
+}
