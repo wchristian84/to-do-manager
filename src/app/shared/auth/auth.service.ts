@@ -48,6 +48,7 @@ export class AuthService {
     );
     if (loadedUser.token) {
       this.currentUser.next(loadedUser);
+      console.log("user: ", loadedUser)
       this.router.navigate(['current-tasks']);
     }
   };
