@@ -17,7 +17,7 @@ export class HTTPService {
 
   fetchCurrentTasks() {
     return this.http
-    .get<Task[]>(`${this.firebaseDatabaseURL}${this.userData.id}/currentTasks.json`, {})
+    .get<Task[]>(`${this.firebaseDatabaseURL}${this.userData.id}currentTasks.json`, {})
     .subscribe((tasks) => {
       console.log(tasks);
       if (tasks === null) {
@@ -31,7 +31,7 @@ export class HTTPService {
 
   fetchArchivedTasks() {
     return this.http
-    .get<Task[]>(`${this.firebaseDatabaseURL}${this.userData.id}/archivedTasks.json`, {})
+    .get<Task[]>(`${this.firebaseDatabaseURL}${this.userData.id}archivedTasks.json`, {})
     .subscribe((tasks) => {
       console.log(tasks);
       if (tasks === null) {
@@ -49,7 +49,7 @@ export class HTTPService {
         currentTasks: this.taskService.getCurrentTasks(),
       };
 
-      this.http.patch(`${this.firebaseDatabaseURL}/${this.userData.id}`, tasks).subscribe((res) => {
+      this.http.patch(`${this.firebaseDatabaseURL}${this.userData.id}`, tasks).subscribe((res) => {
         console.log('Firebase DB Response:', res);
       });
     }
