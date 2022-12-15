@@ -16,10 +16,11 @@ export class ArchivedTasksComponent implements OnInit, OnDestroy {
   constructor(private taskService: TaskService, private httpService: HTTPService) { }
 
   ngOnInit(): void {
-    this.tasks = this.taskService.archivedTasks;
     this.archivedTasksSub = this.taskService.archivedTaskListChanged.subscribe(data => {
       this.tasks = data;
     });
+    this.httpService.fetchCurrentTasks();
+    this.httpService.fetchArchivedTasks();
   }
 
   onDelete(idx: number) {
