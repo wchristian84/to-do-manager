@@ -38,18 +38,21 @@ export class AuthService {
   automaticSignIn() {
     const userData: UserData = JSON.parse(localStorage.getItem('userData') as string);
     console.log(userData);
-    if (!userData) return;
-    const { email, id, _token, _tokenExpirationDate } = userData;
-    const loadedUser = new User (
-      email,
-      id,
-      _token,
-      new Date(_tokenExpirationDate)
-    );
-    if (loadedUser.token) {
-      this.currentUser.next(loadedUser);
-      console.log("user: ", loadedUser)
-      this.router.navigate(['current-tasks']);
+    if (!userData) {
+      return
+    } else {
+      const { email, id, _token, _tokenExpirationDate } = userData;
+      const loadedUser = new User (
+        email,
+        id,
+        _token,
+        new Date(_tokenExpirationDate)
+      );
+      if (loadedUser.token) {
+        this.currentUser.next(loadedUser);
+        console.log("user: ", loadedUser)
+        this.router.navigate(['current-tasks']);
+      }
     }
   };
 
@@ -66,6 +69,7 @@ export class AuthService {
     this.automaticSignOut(expiresIn * 1000);
     this.currentUser.next(formUser);
     localStorage.setItem("userData", JSON.stringify(formUser));
+    console.log(JSON.stringify(formUser));
   };
 
   signIn(email: string, password: string) {

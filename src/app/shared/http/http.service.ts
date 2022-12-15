@@ -9,15 +9,17 @@ import { AuthService, UserData } from '../auth/auth.service';
   providedIn: 'root',
 })
 export class HTTPService {
-  userData: UserData = JSON.parse(localStorage.getItem('userData') as string);
+
   firebaseDatabaseURL = "https://to-do-manager-2ffb3-default-rtdb.firebaseio.com/tasks/";
 
 
   constructor(private http: HttpClient, private taskService: TaskService, private authService: AuthService) {}
 
   fetchCurrentTasks() {
+    let userData = JSON.parse(localStorage.getItem('userData') as string);
+
     return this.http
-    .get<Task[]>(`${this.firebaseDatabaseURL}${this.userData.id}/currentTasks.json`, {})
+    .get<Task[]>(`${this.firebaseDatabaseURL}${userData.id}/currentTasks.json`, {})
     .subscribe((tasks) => {
       console.log(tasks);
       if (tasks === null) {
@@ -30,8 +32,10 @@ export class HTTPService {
 }
 
   fetchArchivedTasks() {
+    let userData = JSON.parse(localStorage.getItem('userData') as string);
+
     return this.http
-    .get<Task[]>(`${this.firebaseDatabaseURL}${this.userData.id}/archivedTasks.json`, {})
+    .get<Task[]>(`${this.firebaseDatabaseURL}${userData.id}/archivedTasks.json`, {})
     .subscribe((tasks) => {
       console.log(tasks);
       if (tasks === null) {
@@ -44,13 +48,15 @@ export class HTTPService {
   }
 
     saveTasksToFirebase() {
+      let userData = JSON.parse(localStorage.getItem('userData') as string);
+
       const tasks = {
         archivedTasks: this.taskService.getArchivedTasks(),
         currentTasks: this.taskService.getCurrentTasks(),
       };
 
-      this.http.patch(`${this.firebaseDatabaseURL}${this.userData.id}`, tasks).subscribe((res) => {
-        console.log('Firebase DB Response:', res);
+      this.http.patch(`${this.firebaseDatabaseURL}${userData.id}`, tasks).subscribe((res) => {
+        console.log('Firebase Patch Response:', res);
       });
     }
 }
