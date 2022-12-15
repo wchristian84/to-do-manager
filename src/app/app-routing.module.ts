@@ -6,19 +6,21 @@ import { CurrentTasksComponent } from './list/current-tasks/current-tasks.compon
 import { EditTaskComponent } from './list/edit-task/edit-task.component';
 import { ViewTaskComponent } from './list/view-task/view-task.component';
 import { AuthComponent } from './shared/auth/auth.component';
+import { AuthGuard } from './shared/auth/auth.guard';
 
 const routes: Routes = [
   { path: "", redirectTo: "/auth", pathMatch: 'full'},
-  { path: "current-tasks", component: CurrentTasksComponent, children:[
+  { path: "current-tasks", component: CurrentTasksComponent, canActivate: [AuthGuard], children:[
+    { path: ":id", component: ViewTaskComponent, pathMatch: 'full'},
+    { path: ":id/edit", component: EditTaskComponent, pathMatch: 'full'}
+  ],},
+
+  { path: "archived-tasks", component: ArchivedTasksComponent, canActivate: [AuthGuard], children: [
     { path: ":id", component: ViewTaskComponent, pathMatch: 'full' },
-    { path: "edit/:id", component: EditTaskComponent, pathMatch: 'full'}
-  ] },
-  { path: "archived-tasks", component: ArchivedTasksComponent, children: [
-    { path: ":id", component: ViewTaskComponent, pathMatch: 'full' },
-    { path: "edit/:id", component: EditTaskComponent, pathMatch: 'full'}
+    { path: ":id/edit", component: EditTaskComponent, pathMatch: 'full'}
   ]},
-  { path: "add-task", component: AddTaskComponent, pathMatch: 'full' },
-  { path: 'auth', component: AuthComponent, pathMatch: 'full' }
+  { path: "add-task", component: AddTaskComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+  { path: 'auth', component: AuthComponent, canActivate: [AuthGuard],pathMatch: 'full' }
 
 ];
 
