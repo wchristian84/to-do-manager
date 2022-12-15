@@ -48,7 +48,7 @@ export class AuthService {
     );
     if (loadedUser.token) {
       this.currentUser.next(loadedUser);
-      this.router.navigate(['current-tasks'])
+      // this.router.navigate(['current-tasks'])
     }
   };
 
@@ -66,6 +66,7 @@ export class AuthService {
     this.currentUser.next(formUser);
     localStorage.setItem("userData", JSON.stringify(formUser));
   };
+
   signIn(email: string, password: string) {
     return this.http.post<AuthResponseData>(
       environment.SIGN_IN_URL + environment.firebaseAPIKey,
