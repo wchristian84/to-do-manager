@@ -23,7 +23,6 @@ import { ViewTaskComponent } from './list/view-task/view-task.component';
 import { ArchivedTasksComponent } from './list/archived-tasks/archived-tasks.component';
 import { CurrentTasksComponent } from './list/current-tasks/current-tasks.component';
 import { AuthComponent } from './shared/auth/auth.component';
-import { VideoComponent } from './video/video.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
 
@@ -37,7 +36,6 @@ import { AuthInterceptorService } from './shared/auth/auth-interceptor.service';
     ArchivedTasksComponent,
     CurrentTasksComponent,
     AuthComponent,
-    VideoComponent,
     NavigationComponent,
   ],
   imports: [

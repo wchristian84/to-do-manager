@@ -22,6 +22,7 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
     this.authService.automaticSignIn();
     this.reactiveAuthForm = this._formBuilder.group({
+      email: new FormControl ('', [Validators.required]),
       password: new FormControl ('', [Validators.required])
     })
   }
@@ -42,6 +43,9 @@ export class AuthComponent implements OnInit {
     }
 
     this.authObsrv.subscribe(
+    //   error: (e) => this.errMsg = e,
+    //   complete: () => console.info('complete')
+    // }
       (res) => {
         console.log("Response Successful:", res);
         if (this.errMsg) this.errMsg = null;
@@ -51,7 +55,8 @@ export class AuthComponent implements OnInit {
         console.error("Response Error:", err);
         this.errMsg = err.message;
       }
-    );
+  );
+    if (!this.errMsg) this.router.navigate(["current-tasks"]);
   }
 
   getErrorMessage() {

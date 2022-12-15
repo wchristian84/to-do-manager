@@ -38,7 +38,7 @@ export class AuthService {
   automaticSignIn() {
     const userData: UserData = JSON.parse(localStorage.getItem('userData') as string);
     console.log(userData);
-    if (!userData) return;
+    if (!userData || userData.id == null) return;
     const { email, id, _token, _tokenExpirationDate } = userData;
     const loadedUser = new User (
       email,
@@ -48,7 +48,7 @@ export class AuthService {
     );
     if (loadedUser.token) {
       this.currentUser.next(loadedUser);
-      // this.router.navigate(['current-tasks'])
+      this.router.navigate(['current-tasks'])
     }
   };
 
